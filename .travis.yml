@@ -2,9 +2,10 @@ sudo: required
 dist: bionic
 language: minimal
 script:
-  - "aria2c --check-certificate=false --header 'Host: fr13.seedr.cc' --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: id,en-US;q=0.7,en;q=0.3' --referer 'https://www.seedr.cc/files/133681472' --header 'Upgrade-Insecure-Requests: 1' 'https://fr13.seedr.cc/ff_get/688558360/Fast.And.Fierce.Death.Race.2020.720p.WEBRip.x264.AAC-[YTS.MX].mp4?st=fIsChZWAxjAUiSvR1uGczA&e=1592671516' --out 'Fast.And.Fierce.Death.Race.2020.720p.WEBRip.x264.AAC-[YTS.MX].mp4'"
+  - "aria2c --check-certificate=false --header 'Host: fr13.seedr.cc' --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: id,en-US;q=0.7,en;q=0.3' --referer 'https://www.seedr.cc/files/133681472' --header 'Upgrade-Insecure-Requests: 1' 'https://fr13.seedr.cc/ff_get/688558360/Fast.And.Fierce.Death.Race.2020.720p.WEBRip.x264.AAC-[YTS.MX].mp4?st=ubjE2-cREtf_Jv8-H0mFrA&e=1592840824' --out 'Fast.And.Fierce.Death.Race.2020.720p.WEBRip.x264.AAC-[YTS.MX].mp4'"
   - ffmpeg -i "Fast.And.Fierce.Death.Race.2020.720p.WEBRip.x264.AAC-[YTS.MX].mp4" -threads 16 -c:v libx265 -c:a copy -metadata title="Fast And Fierce Death Race 2020" -preset veryfast Fast.And.Fierce.Death.Race.2020.720p.WEBRip.x265.mp4
   - ls -hal
+  - lshw
 addons:
   artifacts:
     paths:
@@ -13,6 +14,7 @@ addons:
     packages:
       - ffmpeg
       - aria2
+      - lshw
 matrix:
   fast_finish: true
 notifications:
